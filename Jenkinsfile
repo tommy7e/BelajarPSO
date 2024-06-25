@@ -23,7 +23,7 @@ pipeline {
         }
         stage("Start Docker") {
             steps {
-                bat 'docker compsose up -d'
+                bat 'docker compose up -d'
                 bat 'docker compose ps'
             }
         }
@@ -32,7 +32,7 @@ pipeline {
                 bat 'docker compose run --rm composer install'
             }
         }
-        stage("Run Test") {
+        stage("Run Tests") {
             steps {
                 bat 'docker compose run --rm artisan test'
             }
