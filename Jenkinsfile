@@ -32,7 +32,7 @@ pipeline {
                 bat 'docker compose run --rm composer install'
             }
         }
-        stage("Run Tests") {
+        stage("Run Test") {
             steps {
                 bat 'docker compose run --rm artisan test'
             }
