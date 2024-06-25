@@ -1,14 +1,10 @@
-#!/usr/bin/make
+# Specify CMD as shell
+SHELL := cmd.exe
 
-SHELL = /bin/sh
-
-UID := $(shell id -u)
-GID := $(shell id -g)
-USER:= $(shell whoami)
-
-export UID
-export GID
-export USER
+# Define variables (optional)
+UID := 1000
+GID := 1000
+USER := your_username
 
 up:
 	docker-compose up -d
