@@ -32,6 +32,13 @@ pipeline {
                 bat 'docker compose run --rm composer install'
             }
         }
+        stage("Populate .env file") {
+            steps {
+                bat '''
+                    xcopy /S /Y "C:\\ProgramData\\Jenkins\\.jenkins\\workspace\\envs\\belajarpso\\.env" "%WORKSPACE%"
+                '''
+            }
+        }
         stage("Run Tests") {
             steps {
                 bat 'docker compose run --rm artisan test'
